@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginBottom="@dimen/margin_16"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:background="@drawable/question_view_background"
+        android:gravity="center"
+        android:id="@+id/tvQuestionNumberView"
+        android:layout_height="@dimen/margin_32"
+        android:layout_width="@dimen/margin_32"
+        app:layout_constraintBottom_toBottomOf="@id/tvQuestionTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvQuestionTitle">
+
+        <TextView
+            android:id="@+id/tvQuestionNumber"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="1"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/tvQuestionTitle"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_16"
+        android:layout_marginTop="8dp"
+        android:layout_width="0dp"
+        android:minLines="1"
+        android:paddingEnd="@dimen/margin_18"
+        android:text="I _________ bus on Mondays."
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@id/tvQuestionNumberView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/margin_16"
+        android:layout_width="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvQuestionTitle">
+
+
+        <RadioButton
+            android:background="@drawable/option_selector"
+            android:button="@drawable/option_selector"
+            android:checked="false"
+            android:id="@+id/radioButton1"
+            android:layout_height="wrap_content"
+            android:layout_width="200dp"
+            android:paddingStart="@dimen/margin_16"
+            android:text="option1"
+            android:textColor="@drawable/text_color_selector"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RadioButton
+            android:background="@drawable/option_selector"
+            android:button="@drawable/option_selector"
+            android:checked="false"
+            android:id="@+id/radioButton2"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_8"
+            android:layout_width="200dp"
+            android:paddingStart="@dimen/margin_16"
+            android:text="option2"
+            android:textColor="@drawable/text_color_selector"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/radioButton1" />
+
+
+        <RadioButton
+            android:background="@drawable/option_selector"
+            android:button="@drawable/option_selector"
+            android:checked="false"
+            android:id="@+id/radioButton3"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_8"
+            android:layout_width="200dp"
+            android:paddingStart="@dimen/margin_16"
+            android:text="option3"
+            android:textColor="@drawable/text_color_selector"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/radioButton2" />
+
+        <RadioButton
+            android:background="@drawable/option_selector"
+            android:button="@null"
+            android:checked="false"
+            android:id="@+id/radioButton4"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_8"
+            android:layout_width="200dp"
+            android:paddingStart="@dimen/margin_16"
+            android:text="option4"
+            android:textColor="@drawable/text_color_selector"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/radioButton3" />
+
+
+    </RadioGroup>
+</androidx.constraintlayout.widget.ConstraintLayout>
+

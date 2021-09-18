@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navHeader"
+    android:fitsSystemWindows="true"
+    android:layout_width="match_parent"
+    android:layout_height="192dp"
+    android:background="@color/design_default_color_primary"
+    android:padding="16dp"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <TextView
+        android:id="@+id/tvNameHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitCenter"
+        android:text="@string/app_name"
+        android:textColor="@color/white"
+        android:textSize="@dimen/large_title"
+        android:layout_marginTop="@dimen/margin_24"
+        android:layout_marginStart="@dimen/margin_24"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/tvEmailHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitCenter"
+        android:text="@string/app_name"
+        android:textColor="@color/white"
+        android:textSize="@dimen/medium"
+        android:layout_marginStart="@dimen/margin_24"
+        android:layout_marginTop="@dimen/margin_16"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvNameHeader"  />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

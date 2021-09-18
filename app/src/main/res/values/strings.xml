@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Learn English</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="about">This is English app </string>
+    <string name="user_name">Username</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forget_password">FORGOT PASSWORD?</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="login">LOGIN</string>
+    <string name="national_id">Civil ID</string>
+    <string name="mobile_phone">Mobile Phone</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="have_account">Already have an account?</string>
+    <string name="sign_in">SIGN IN</string>
+    <string name="Greeting">Hello!</string>
+    <string name="test">Let\'s Test Your English ..</string>
+    <string name="next_part"><![CDATA[NEXT PART >]]></string>
+    <string name="score_title">Your level of English ..</string>
+    <string name="to_learn">LET\'S START LEARNING</string>
+    <string name="test_level">TEST LEVEL</string>
+    <string name="learr">Let\'s learn English ..</string>
+    <string name="logout">Logout</string>
+</resources>

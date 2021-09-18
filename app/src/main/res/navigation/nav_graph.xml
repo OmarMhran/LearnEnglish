@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.learnenglish.ui.home.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_scoreFragment"
+            app:destination="@id/scoreFragment"
+
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/scoreFragment"
+        android:name="com.example.learnenglish.ui.home.fragments.ScoreFragment"
+        android:label="fragment_score"
+        tools:layout="@layout/fragment_score" >
+
+
+        <argument
+            android:name="score"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_scoreFragment_to_learnFragment"
+            app:destination="@id/learnFragment" />
+        <action
+            android:id="@+id/action_scoreFragment_to_learn_nav_graph"
+            app:destination="@id/learn_nav_graph"
+            app:popUpTo="@id/homeFragment" />
+    </fragment>
+
+    <include app:graph="@navigation/learn_nav_graph" />
+
+
+</navigation>
