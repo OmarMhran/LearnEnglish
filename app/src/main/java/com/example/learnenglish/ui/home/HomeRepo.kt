@@ -7,7 +7,10 @@ class HomeRepo @Inject constructor(private val fireBaseSource: FirebaseSource) {
 
     fun fetchEnglishExam() = fireBaseSource.fetchEnglishExam()
 
-    fun fetchLessons() = fireBaseSource.fetchEnglishLessons()
+    fun fetchLessons(level: String) = fireBaseSource.fetchEnglishLessons(level)
 
-  suspend  fun logoutUser() = fireBaseSource.logoutUser()
+    fun fetchLessonExam(lesson: String) = fireBaseSource.fetchLessonExam(lesson)
+
+
+    suspend  fun logoutUser() = fireBaseSource.logoutUser()
 }

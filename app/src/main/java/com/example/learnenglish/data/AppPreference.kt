@@ -33,7 +33,7 @@ class AppPreference(context: Context){
     }
 
     val userScoreFlow: Flow<String> = appPreference.data.map {
-        it[USER_SCORE] ?: " "
+        it[USER_SCORE] ?: ""
     }
 
 

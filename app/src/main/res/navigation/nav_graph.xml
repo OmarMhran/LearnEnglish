@@ -21,21 +21,10 @@
         android:name="com.example.learnenglish.ui.home.fragments.ScoreFragment"
         android:label="fragment_score"
         tools:layout="@layout/fragment_score" >
-
-
         <argument
             android:name="score"
             app:argType="integer" />
-        <action
-            android:id="@+id/action_scoreFragment_to_learnFragment"
-            app:destination="@id/learnFragment" />
-        <action
-            android:id="@+id/action_scoreFragment_to_learn_nav_graph"
-            app:destination="@id/learn_nav_graph"
-            app:popUpTo="@id/homeFragment" />
     </fragment>
-
-    <include app:graph="@navigation/learn_nav_graph" />
 
 
 </navigation>

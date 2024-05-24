@@ -22,4 +22,10 @@
     <string name="test_level">TEST LEVEL</string>
     <string name="learr">Let\'s learn English ..</string>
     <string name="logout">Logout</string>
+<<<<<<< HEAD
+=======
+    <string name="correct_answers">Questions you couldn\'t answer</string>
+    <string name="to_exam">To Exam</string>
+    <string name="to_next_lesson">To Next Lesson</string>
+>>>>>>> ac77176 (Learn English App)
 </resources>

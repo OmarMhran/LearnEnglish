@@ -9,20 +9,27 @@ import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.asLiveData
 
 import com.example.learnenglish.R
+import com.example.learnenglish.data.AppPreference
 import com.example.learnenglish.data.Status
 import com.example.learnenglish.databinding.ActivityLoginBinding
 import com.example.learnenglish.ui.signup.SignUpActivity
 import com.example.learnenglish.ui.home.HomeActivity
+import com.example.learnenglish.ui.learn.LearnActivity
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 
 @AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
 
     lateinit var viewModel: LoginViewModel
+    @Inject
+    lateinit var appPreference: AppPreference
+
     // private var binding: ActivityLoginBinding? = null
 
     @RequiresApi(Build.VERSION_CODES.N)
@@ -75,13 +82,23 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun toHome(username: String, email: String){
-        val intent = Intent(this@LoginActivity, HomeActivity::class.java)
-        intent.putExtra("username",username)
-        intent.putExtra("email",email)
-        startActivity(intent)
-        this.finish()
+        appPreference.userScoreFlow.asLiveData().observe(this,{ score ->
+            if (score.isNullOrEmpty()){
+                val intent = Intent(this@LoginActivity, HomeActivity::class.java)
+                intent.putExtra("username",username)
+                intent.putExtra("email",email)
+                startActivity(intent)
+                this.finish()
+            }else{
+                val intent = Intent(this@LoginActivity, HomeActivity::class.java)
+                startActivity(intent)
+                this.finish()
+            }
+        })
+
     }
 }
+
 
 
 fun View.showsnackBar(message: String) {

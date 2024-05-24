@@ -25,7 +25,9 @@ class FirebaseSource @Inject constructor(private val firebaseAuth: FirebaseAuth,
 
     fun fetchEnglishExam() = firestore.collection("english_test").document("E5bSPrvgnok1JY16pujD")
 
-    fun fetchEnglishLessons() = firestore.collection("lessons").get()
+    fun fetchEnglishLessons(level: String) = firestore.collection("lessons").document(level).get()
+
+    fun fetchLessonExam(lesson: String) = firestore.collection("lesson_exam").document(lesson)
 
 
     fun logoutUser() = firebaseAuth.signOut()

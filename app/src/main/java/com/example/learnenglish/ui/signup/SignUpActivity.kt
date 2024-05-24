@@ -28,6 +28,7 @@ class SignUpActivity : AppCompatActivity() {
 
     @Inject
     lateinit var auth: FirebaseAuth
+    lateinit var user: User
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,32 +56,42 @@ class SignUpActivity : AppCompatActivity() {
             val confirmPasswordText = binding.etConfirmPasswordSignUp.text?.toString()
 
 
+            when {
+                nationalIdText?.length!! != 12 ->
+                    binding.root.rootView.showsnackBar("Civil Id must be 12 digit")
 
-            if (confirmPasswordText?.equals(passwordText)!!) {
+                mobilePhoneText?.length!! != 8 ->
+                    binding.root.rootView.showsnackBar("Mobile Phone must be 8 digit")
 
-                val user = User(fullNameText!!, emailText!!, nationalIdText!!, mobilePhoneText!!, passwordText)
+                !confirmPasswordText?.equals(passwordText)!! ->
+                    binding.root.rootView.showsnackBar("Passwords are not equal")
 
 
-                viewModel.signUpUser(emailText.toString(), passwordText, fullNameText.toString())
-                        .observe(this, {
-                            when (it.status) {
-                                Status.SUCCESS -> {
-                                    binding.pbSignUp.visibility = View.GONE
-                                    viewModel.saveUser2(user)
-                                    binding.root.rootView.showsnackBar("User account registered")
-                                    toSignIn()
+                else -> {
+                    user = User(fullNameText!!, emailText!!, nationalIdText, mobilePhoneText, passwordText)
+
+
+                    viewModel.signUpUser(emailText.toString(), passwordText, fullNameText.toString())
+                            .observe(this, {
+                                when (it.status) {
+                                    Status.SUCCESS -> {
+                                        binding.pbSignUp.visibility = View.GONE
+                                        viewModel.saveUser2(user)
+                                        binding.root.rootView.showsnackBar("User account registered")
+                                        toSignIn()
+                                    }
+                                    Status.ERROR -> {
+                                        binding.pbSignUp.visibility = View.GONE
+                                        binding.root.rootView.showsnackBar(it.message!!)
+                                    }
+                                    Status.LOADING -> {
+                                        binding.pbSignUp.visibility = View.VISIBLE
+                                    }
                                 }
-                                Status.ERROR -> {
-                                    binding.pbSignUp.visibility = View.GONE
-                                    binding.root.rootView.showsnackBar(it.message!!)
-                                }
-                                Status.LOADING -> {
-                                    binding.pbSignUp.visibility = View.VISIBLE
-                                }
-                            }
-                        })
-            } else {
-                binding.root.rootView.showsnackBar("Passwords are not equal")
+                            })
+
+                }
+
             }
         }
 
@@ -90,12 +101,6 @@ class SignUpActivity : AppCompatActivity() {
 
     private fun toSignIn() {
         val intent = Intent(this@SignUpActivity, LoginActivity::class.java)
-        startActivity(intent)
-        this.finish()
-    }
-
-    private fun toHome() {
-        val intent = Intent(this@SignUpActivity, HomeActivity::class.java)
         startActivity(intent)
         this.finish()
     }

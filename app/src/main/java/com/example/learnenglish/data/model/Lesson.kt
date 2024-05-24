@@ -6,8 +6,10 @@ data class Lesson (
         var id: Int? = null,
         val title: String? = null,
         val lecture: String? = null,
-        val image: String? = null) : Serializable
+        val image: String? = null,
+        val level: String? = null) : Serializable
+
 {
 
-    constructor() : this(null,null,null,null)
+    constructor() : this(null,null,null,null,null)
 }

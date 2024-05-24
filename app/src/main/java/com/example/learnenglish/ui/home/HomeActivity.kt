@@ -45,7 +45,6 @@ class HomeActivity : AppCompatActivity() {
         drawerLayout = binding.drawerLayout
 
 
-
         val navController = findNavController(R.id.myNavHostFragment)
         appBarConfiguration = AppBarConfiguration(setOf(
                 R.id.homeFragment, R.id.scoreFragment, R.id.learnFragment, R.id.lessonFragment

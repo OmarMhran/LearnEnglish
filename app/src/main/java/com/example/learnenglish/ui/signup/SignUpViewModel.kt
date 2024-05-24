@@ -9,10 +9,13 @@ import com.example.learnenglish.data.NetworkConnection
 import com.example.learnenglish.data.Resource
 import com.example.learnenglish.data.model.User
 import com.google.firebase.auth.FirebaseAuth
+import dagger.hilt.android.lifecycle.HiltViewModel
 import java.util.regex.Matcher
 import java.util.regex.Pattern
+import javax.inject.Inject
 
-class SignUpViewModel @ViewModelInject constructor(
+@HiltViewModel
+class SignUpViewModel @Inject constructor(
     private val repository: SignUpRepo,
     private val networkConnection: NetworkConnection,
     private val firebaseAuth: FirebaseAuth
@@ -35,6 +38,9 @@ class SignUpViewModel @ViewModelInject constructor(
 
             !isEmailValid(email) ->{
                 userLiveData.postValue(Resource.error(null, "Please enter valid email"))
+            }
+            email != email.lowercase() -> {
+                userLiveData.postValue(Resource.error(null, "Email Shouldn't Contain Capital Case Letter"))
             }
 
             networkConnection.isConnected() -> {

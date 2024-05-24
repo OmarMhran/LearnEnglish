@@ -7,25 +7,27 @@
 
     <fragment
         android:id="@+id/learnFragment"
-        android:name="com.example.learnenglish.ui.home.fragments.LearnFragment"
+        android:name="com.example.learnenglish.ui.learn.fragments.LearnFragment"
         android:label="fragment_learn"
         tools:layout="@layout/fragment_learn" >
-        <action
-            android:id="@+id/action_learnFragment_to_homeFragment"
-            app:destination="@id/homeFragment"
-            app:popUpToInclusive="true"/>
         <action
             android:id="@+id/action_learnFragment_to_lessonFragment"
             app:destination="@id/lessonFragment"
             />
+        <argument
+            android:name="lesson"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/lessonFragment"
-        android:name="com.example.learnenglish.ui.home.fragments.LessonFragment"
+        android:name="com.example.learnenglish.ui.learn.fragments.LessonExamFragment"
         android:label="fragment_lesson"
         tools:layout="@layout/fragment_lesson">
         <argument
-            android:name="lesson"
-            app:argType="com.example.learnenglish.data.model.Lesson" />
+            android:name="level"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_lessonFragment_to_learnFragment"
+            app:destination="@id/learnFragment" />
     </fragment>
 </navigation>
