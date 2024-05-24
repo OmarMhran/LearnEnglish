@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.learn.LearnActivity">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tbLearn"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:gravity="top"
+        android:theme="@style/ThemeOverlay.App.Toolbar"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleMargins="0dp"
+        app:titleTextColor="@color/white">
+
+        <TextView
+            android:id="@+id/tbTitle"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/white" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvLessons"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/margin_24"
+        android:orientation="vertical"
+        tools:listitem="@layout/lesson_list_item"
+        app:layout_constraintBottom_toTopOf="@+id/btnToTest"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tbLearn"
+        />
+
+
+
+    <Button
+        android:id="@+id/btnToTest"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:text="@string/test_level"
+        android:textSize="@dimen/medium"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_margin="@dimen/margin_24"
+        android:background="@drawable/button_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+
+
+    <ProgressBar
+        android:id="@+id/pbLearn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
